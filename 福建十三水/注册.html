@@ -185,7 +185,7 @@
 <div id="i4">
     <p class="word" id="p1">用户名：</p>
 
-    <input id="i1" type="text" placeholder="请输入教务处账号">
+    <input id="i1" type="text" placeholder="请输入用户名">
 
 <!--    <p class="word" id="p2">昵称：</p>
 
@@ -195,7 +195,7 @@
 
     <input id="i2" type="password" placeholder="请输入密码">
 
-    <input id="i3" type="button" value="立即注册" onclick="tl()"> <!--onclick用来和js联系-->
+    <input id="i3" type="button" value="立即注册" onclick="t1()"> <!--onclick用来和js联系-->
 </div>
 
 <div id="i7">
@@ -222,5 +222,38 @@
 
     </div>
 </div>
+<script>
+	var username=document.getElementById("i1");
+    var password=document.getElementById("i2");
+	function t1(){
+    var data = JSON.stringify({
+        "username": username.value,
+        "password": password.value
+    });
+	if (username.value == "" ||password.value == "" )
+	{
+		alert("请输入用户名或密码");
+		return ;
+	}
+    var xhr = new XMLHttpRequest();
+    //xhr.withCredentials = true;
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+        
+        var JsonObj = JSON.parse(this.responseText);
+        if(JsonObj.status==0) alert("注册成功，请登录");
+        else if(JsonObj.status==1001) alert("用户名已被使用");
+        else if(JsonObj.status==1002) alert("学号已绑定");
+        else if(JsonObj.status==1003) alert("教务处认证失败");
+    }
+    });
+
+    xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/register");
+    xhr.setRequestHeader("content-type", "application/json");
+    xhr.send(data);
+    }
+	
+</script>
 </body>
 </html>

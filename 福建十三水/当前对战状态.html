@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>当前对战状态</title>
+    <meta charset="utf-8" />
+    <title></title>
     <style type="text/css">
         .class1 /*背景*/
         {
@@ -11,46 +11,12 @@
             background-attachment:fixed;
             background-size:1350px;
             background-position:center;
-            /*background-color:#f6ebd9;*/
+            background-color:#f6ebd9;
         }
-        #di1{
-            position: fixed;
-            border-color:#a27e7e;
-            border-style: solid;
-            border-width: 5px;
-            background-color:#f8dfbc;
-            width:116px;
-            height:25px;
-            border-radius: 5px;
-            margin-top: 22px;
-            margin-left: 1200px;
-            -moz-box-shadow:5px 5px 10px #6b5858;
-            -webkit-box-shadow:5px 5px 10px #6b5858;
-            box-shadow:5px 5px 10px #6b5858;
-
+        body{
+            margin: 0px;
         }
-        p{
-            font-family:微软雅黑 ;
-            font-size:18px；
-            text-align:center;
-            color:#ffffff;
-        }
-        #di2{
-            position: fixed;
-            border-color:#a27e7e;
-            border-style: solid;
-            border-width: 5px;
-            background-color:#f8dfbc;
-            width:116px;
-            height:25px;
-            border-radius: 5px;
-            margin-top: 67px;
-            margin-left: 1200px;
-            -moz-box-shadow:5px 5px 10px #6b5858;
-            -webkit-box-shadow:5px 5px 10px #6b5858;
-            box-shadow:5px 5px 10px #6b5858;
-
-        }
+        /*退出按钮*/
         #di3{
             position: fixed;
             border-color:#a27e7e;
@@ -67,31 +33,2044 @@
             box-shadow:5px 5px 10px #6b5858;
 
         }
+        #di3:hover{
+            opacity: 0.75;
+        }
+
+        /* 排行榜*/
+        .zhezhao{
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: none;
+            width: 100%;
+            height: 100%;
+
+        }
+        .image1 /*标题*/
+        {  /* position: fixed;*/
+            width:980px;
+            height:101px;
+            margin-top: 26px;
+            margin-left:162px ;
+        }
+        .tankuang{
+            position: relative;
+            background: #ffffff;
+            width: 40%;
+            height: 80%;
+            border-radius: 5px;
+            margin: 5% auto;
+            background:rgba(255,255,255,0.75);
+        }
+        #header{
+            height: 40px;
+        }
+        #header-right{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+
+        #di1{
+            position: fixed;
+            border-color:#a27e7e;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f8dfbc;
+            width:116px;
+            height:25px;
+            border-radius: 5px;
+            margin-top: 22px;
+            margin-left: 1200px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+
+        }
+        /*    p{
+                font-family:微软雅黑 ;
+                font-size:18px；
+                text-align:center;
+                color:#ffffff;
+            }*/
+        #di1:hover{ opacity: 0.75;}
+
+        #id4
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 35px;
+            margin-left: 33px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+        }
+        #id5
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 135px;
+            margin-left: 33px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+
+        }
+        #id6
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 235px;
+            margin-left:33px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+        }
+        #id7
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 335px;
+            margin-left: 33px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+        }
+        #id8
+        {
+            position: fixed;
+            border-color: #ecc763;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#eed36f;
+            width:45px;
+            height:45px;
+            border-radius: 5px;
+            margin-top: 42px;
+            margin-left: 53px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+            text-align:center;
+            line-height: 45px;
+            color: #FFFFFF;
+            font-size: 24px;
+        }
+
+        #id9
+        {
+            position: fixed;
+            border-color:#b4bfc4;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#c2c8c4;
+            width:45px;
+            height:45px;
+            border-radius: 5px;
+            margin-top: 142px;
+            margin-left: 51px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+            text-align:center;
+            line-height: 45px;
+            color: #FFFFFF;
+            font-size: 24px;
+        }
+
+        #id10
+        {
+            position: fixed;
+            border-color:#BA795F;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#CB9B72;
+            width:45px;
+            height:45px;
+            border-radius: 5px;
+            margin-top: 242px;
+            margin-left: 49px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+            text-align:center;
+            line-height: 45px;
+            color: #FFFFFF;
+            font-size: 24px;
+        }
+
+        #id11
+        {
+            position: fixed;
+            display: ;
+            border-color: #835858;
+            border-style: solid;
+            border-width: 5px;
+            background-color: #926365;
+            width:45px;
+            height:45px;
+            border-radius: 5px;
+            margin-top: 342px;
+            margin-left: 51px;
+            -moz-box-shadow:5px 5px 10px #717171;
+            -webkit-box-shadow:5px 5px 10px #717171;
+            box-shadow:5px 5px 10px #717171;
+            text-align:center;
+            line-height: 45px;
+            color: #FFFFFF;
+            font-size: 24px;
+
+        }
+        #name1{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 42px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        /* 返回数据*/
+        #pid1{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 73px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #name1{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 42px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #pid1{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 73px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #name2{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 142px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #pid2{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 173px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #name3{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 242px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #pid3{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 273px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #name4{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 342px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #pid4{
+            position: fixed;
+            border-color: #f6ebd9;
+            border-style: solid;
+            background-color: #fef3e1;
+            width:110px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 373px;
+            margin-left: 125px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            font-size: 13px;
+            text-align: center;
+            line-height: 20px;
+            color: #5c4b4b;
+        }
+        #grade1
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 26px;
+            color: #5c4b4b;
+        }
+        #grade2
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 26px;
+            color: #5c4b4b;
+        }
+        #grade3
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 26px;
+            color: #5c4b4b;
+        }
+        #grade4
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 26px;
+            color: #5c4b4b;
+        }
+
+
+        /*往期对战结果*/
+        .zhezhao2{
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: none;
+            width: 100%;
+            height: 100%;
+
+        }
+        .image2/*标题*/
+        {  /* position: fixed;*/
+            width:877px;
+            height:101px;
+            margin-top: 16px;
+            margin-left:90px ;
+        }
+        .tankuang2{
+            position: relative;
+            background: #ffffff;
+            width: 674px;
+            height: 603px;
+            border-radius: 5px;
+            margin: 5% auto;
+            background:rgba(255,255,255,0.75);
+        }
+        #header2{
+            height: 40px;
+        }
+        #header-right2{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+
+        /*按钮*/
+        #di2{
+            position: fixed;
+            border-color:#a27e7e;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f8dfbc;
+            width:116px;
+            height:25px;
+            border-radius: 5px;
+            margin-top: 67px;
+            margin-left: 1200px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+
+        }
+        #di2:hover{
+            opacity:0.75;
+        }
+        /*ID 页数 每页条数*/
+        #IIDD
+        {
+            position: fixed;
+            border-color:#dfcdcd;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#dfcdcd;
+            width:160px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            margin-left: 60px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            color: #FFFFFF;
+
+
+            text-align: center;
+            line-height: 20px;
+        }
+
+
+        #LIMIT
+        {
+            position: fixed;
+            border-color:#dfcdcd;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#dfcdcd;
+            width:130px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            margin-left: 310px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            color: #FFFFFF;
+
+            text-align: center;
+            line-height: 20px;
+
+
+        }
+
+        /*name*/
+        #PAGE
+        {
+            position: fixed;
+            border-color:#dfcdcd;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#dfcdcd;
+            width:130px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 30px;
+            margin-left: 468px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            color: #FFFFFF;
+
+            text-align: center;
+            line-height: 20px;
+
+
+        }
+        /* 接口返回数据*/
+        #res1
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #5c4b4b;
+        }
+        #res2
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #5c4b4b;
+        }
+        #res3
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #5c4b4b;
+        }
+        #res4
+        {   margin-top: 0px;
+            margin-left: 120px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 14px;
+            color: #5c4b4b;
+        }
+
+        /*长条框*/
+        #d4
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 100px;
+            margin-left: 58px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+
+        }
+
+        #d5
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 190px;
+            margin-left: 58px;
+            -moz-box-shadow:5px 5px 10px #6b6868;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+        }
+        #d6
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 280px;
+            margin-left: 58px;
+            -moz-box-shadow:5px 5px 10px #6b6868;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+        }
+        #d7
+        {
+            position: fixed;
+            border-color:#b08787;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#b08787;
+            width:540px;
+            height:60px;
+            border-radius: 5px;
+            margin-top: 370px;
+            margin-left:58px;
+            -moz-box-shadow:5px 5px 10px #6b6868;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+        }
+
+
+        #ddi1{
+            position: fixed;
+            border-color:#f0ebe7;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f0ebe7;
+            width:101px;
+            height:40px;
+            border-radius: 5px;
+            margin-top: 110px;
+            margin-left: 70px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            color: #5c4b4b;
+
+        }
+
+        #ddi1:hover{
+            opacity:0.75;
+        }
+
+        #ddi2{
+            position: fixed;
+            border-color:#f0ebe7;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f0ebe7;
+            width:101px;
+            height:40px;
+            border-radius: 5px;
+            margin-top: 200px;
+            margin-left: 70px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            color: #5c4b4b;
+        }
+        #ddi2:hover{
+            opacity:0.75;
+        }
+
+        #ddi3{
+            position: fixed;
+            border-color:#f0ebe7;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f0ebe7;
+            width:101px;
+            height:40px;
+            border-radius: 5px;
+            margin-top: 290px;
+            margin-left: 70px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            color: #5c4b4b;
+        }
+        #ddi3:hover{
+            opacity:0.75;
+        }
+        #ddi4{
+            position: fixed;
+            border-color:#f0ebe7;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#f0ebe7;
+            width:101px;
+            height:40px;
+            border-radius: 5px;
+            margin-top: 380px;
+            margin-left: 70px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            color: #5c4b4b;
+        }
+        #ddi4:hover{
+            opacity:0.75;
+        }
+        .zhezhao3
+        {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background:none;
+            width: 100%;
+            height: 100%;
+            z-index:9999;
+        }
+        .tankuang3{
+
+            position:relative;
+            background: #f7f7f7;
+            width: 46%;
+            height: 88%;
+            border-radius: 5px;
+            margin: 5% auto;
+
+        }
+        #header3{
+            height: 40px;
+        }
+        #header-right3{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+        .zhezhao4
+        {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background:none;
+            width: 100%;
+            height: 100%;
+            z-index:9999;
+        }
+        .tankuang4{
+            position: relative;
+            background: #f7f7f7;
+            width: 46%;
+            height: 88%;
+            border-radius: 5px;
+            margin: 5% auto;
+        }
+        #header4{
+            height: 40px;
+        }
+        #header-right4{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+        .zhezhao5
+        {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background:none;
+            width: 100%;
+            height: 100%;
+            z-index:9999;
+        }
+        .tankuang5{
+            position: relative;
+            background: #f7f7f7;
+            width: 46%;
+            height: 88%;
+            border-radius: 5px;
+            margin: 5% auto;
+        }
+        #header5{
+            height: 40px;
+        }
+        #header-right5{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+        .zhezhao6
+        {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            background: none;
+            width: 100%;
+            height: 100%;
+            z-index:9999;
+        }
+        .tankuang6{
+            position: relative;
+            background: #f7f7f7;
+            width: 46%;
+            height: 88%;
+            border-radius: 5px;
+            margin: 5% auto;
+        }
+        #header6{
+            height: 40px;
+        }
+        #header-right6{
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            background: #b08787;
+            font-family: cursive;
+            font-size: 22px;
+            color: #fff;
+            right: 5px;
+            top: 5px;
+            text-align: center;
+        }
+        .image3 /*标题*/
+        {
+            position:fixed;
+            width:877px;
+            height:101px;
+            margin-top: 25px;
+            margin-left:30px ;
+        }
+        .image4
+        {
+            position:fixed;
+            width:660px;
+            height:500px;
+            margin-top: 120px ;
+            margin-left: 20px;
+        }
+
+        /*#id1{*/
+        /*    position: fixed;*/
+        /*    border-color:#ffffff;*/
+        /*    border-style: solid;*/
+        /*    border-width: 5px;*/
+        /*    background-color:#FFFFFF;*/
+        /*    width:674px;*/
+        /*    height:673px;*/
+        /*    opacity:0.4;*/
+        /*    border-radius: 6px;*/
+        /*    margin-top: 18px;*/
+        /*    margin-left: 440px;*/
+        /*    -moz-box-shadow:5px 5px 10px #717171;*/
+        /*    -webkit-box-shadow:5px 5px 10px #717171;*/
+        /*    box-shadow:5px 5px 10px #717171;*/
+        /*}*/
+
+        #s2{
+            position: fixed;
+            background-attachment: fixed;
+            margin-top: 40px;
+            margin-left: 1080px;
+        }
+        #s2:hover
+        {
+            opacity: 0.75;
+        }
+
+        #n1
+        {
+            position: fixed;
+            /*border-color:;*/
+            /*border-style: solid;*/
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            margin-top: 200px;
+            margin-left: 50px;
+            border-radius: 6px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height: 30px;
+            text-align:center;
+            color:#000000;
+        }
+        #n2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 200px;
+            margin-left: 220px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #n3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 200px;
+            margin-left: 385px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #n4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 200px;
+            margin-left: 550px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+
+        #i1
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 250px;
+            margin-left: 50px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #i2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 250px;
+            margin-left: 220px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #i3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 250px;
+            margin-left: 385px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #i4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 250px;
+            margin-left: 550px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #g1
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 300px;
+            margin-left: 50px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #g2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 300px;
+            margin-left: 220px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #g3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 300px;
+            margin-left: 385px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #g4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:100px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 300px;
+            margin-left: 550px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #q1
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 440px;
+            margin-left: 30px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #q2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 440px;
+            margin-left: 200px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #q3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 440px;
+            margin-left: 365px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #q4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 440px;
+            margin-left: 530px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #z1
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 490px;
+            margin-left: 30px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #z2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 490px;
+            margin-left: 200px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #z3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 490px;
+            margin-left: 365px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #z4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 490px;
+            margin-left: 530px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #h1
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 540px;
+            margin-left: 30px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #h2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 540px;
+            margin-left: 200px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #h3
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 540px;
+            margin-left: 365px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #h4
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 540px;
+            margin-left: 530px;
+            font-family:微软雅黑 ;
+            font-size:25px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #id2
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:140px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 125px;
+            margin-left: 350px;
+            font-family:微软雅黑 ;
+            font-size:20px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        #shijian
+        {
+            position: fixed;
+            border-width: 5px;
+            background-color:#ffffff;
+            width:160px;
+            height:30px;
+            border-radius: 6px;
+            margin-top: 125px;
+            margin-left: 510px;
+            font-family:微软雅黑 ;
+            font-size:20px;
+            line-height:30px;
+            text-align:center;
+            color:#000000;
+        }
+        .getcard{
+            position: fixed;
+            border-color: #835858;
+            border-style: solid;
+            border-width: 2px;
+            background-color:none;
+            width:93px;
+            height: 140px;
+            border-radius: 5px;}
+
+        #gc1{
+            margin-top: 590px;
+            margin-left: 135px;
+        }
+        #gc2{
+            margin-top: 590px;
+            margin-left: 232px;
+        }
+
+        #gc3{
+            margin-top: 590px;
+            margin-left: 329px;
+        }
+        #gc4{
+            margin-top: 590px;
+            margin-left: 426px;
+        }
+        #gc5{
+            margin-top: 590px;
+            margin-left: 523px;
+        }
+        #gc6{
+            margin-top: 590px;
+            margin-left: 620px;
+        }
+        #gc7{
+            margin-top: 590px;
+            margin-left: 717px;
+        }
+        #gc8{
+            margin-top: 590px;
+            margin-left: 814px;
+        }
+        #gc9{
+            margin-top: 590px;
+            margin-left: 911px;
+        }
+        #gc10{
+            margin-top: 590px;
+            margin-left: 1008px;
+        }
+        #gc11{
+            margin-top: 590px;
+            margin-left: 1105px;}
+
+        #gc12{
+            margin-top: 590px;
+            margin-left: 1202px;
+        }
+        #gc13{
+            margin-top: 590px;
+            margin-left: 1299px;
+
+        }
+.card{
+    position: fixed;
+    border-color: #835858;
+    border-style: solid;
+    border-width: 2px;
+    background-color:none;
+    width:114px;
+    height: 170px;
+    border-radius: 5px;
+}
+        #top1 {
+            margin-top: 30px;
+            margin-left: 566px;
+        }
+
+        #top2{
+            margin-top:30px ;
+            margin-left: 700px;
+        }
+        #top3{
+            margin-top:30px ;
+            margin-left: 839px;
+        }
+        #middle1 {
+            margin-top: 215px;
+            margin-left: 432px;
+        }
+        #middle2 {
+            margin-top: 215px;
+            margin-left: 566px;
+        }
+        #middle3{
+            margin-top:215px ;
+            margin-left: 700px;
+        }
+        #middle4{
+            margin-top:215px ;
+            margin-left: 839px;
+        }
+        #middle5{
+            margin-top:215px ;
+            margin-left: 973px;
+        }
+        #buttom1 {
+            margin-top: 400px;
+            margin-left: 432px;
+        }
+        #buttom2 {
+            margin-top: 400px;
+            margin-left: 566px;
+        }
+        #buttom3{
+            margin-top:400px ;
+            margin-left: 700px;
+        }
+        #buttom4{
+            margin-top:400px ;
+            margin-left: 839px;
+        }
+        #buttom5{
+            margin-top:400px ;
+            margin-left: 973px;
+        }
+
+        #start{
+            position: fixed;
+            height:50px ;
+            width:100px;
+            background-color: #9c0007;
+            border-color: #965458;
+            border-width: 5px;
+            border-radius: 8px;
+            font-family: 微软雅黑;
+         font-size: 20px;
+            color: #f0dcd2;
+            margin-top: 440px;
+            margin-left: 220px;
+
+        }
+#chupai{
+    position: fixed;
+   height:50px ;
+    width:100px;
+    background-color: #ffead1;
+    border-color: #d2bdaa;
+    border-width: 5px;
+    border-radius: 8px;
+    font-family: 微软雅黑;
+    font-size: 20px;
+    color: #926365;
+    margin-top: 500px;
+    margin-left: 220px;
+}
+.zi{
+    position: fixed;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: #926365;
+    background-color: #ffead1;
+    width:100px;
+    height:60px;
+    border-radius: 6px;
+
+    font-family:微软雅黑 ;
+    font-size:40px;
+    line-height:60px;
+    text-align:center;
+    color: #835858;
+}
+        #zi1{
+            margin-top: 80px;
+            margin-left: 980px;
+        }
+
+        #zi2{
+            margin-top: 270px;
+            margin-left: 1120px;
+        }
+
+        #zi3{
+            margin-top: 450px;
+            margin-left: 1120px;
+        }
 
     </style>
 </head>
 <body class="class1">
 
-<!--按钮-->
-<div id="di1" ><botton onclick="location.href='排行榜.html'">
-    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排行榜</b>
-</botton></div>
+<button id="start"><b>开始</b></button>
+<button id="chupai"><b>出牌</b></button>
+
+<div class="zi" id="zi1"><b>前墩</b></div>
+<div class="zi" id="zi2"><b>中墩</b></div>
+<div class="zi" id="zi3"><b>后墩</b></div>
+
+<!--开启战局获得的牌-->
+<div id="gc1" class="getcard"><img height="140px" src="黑桃K.png "></div>
+<div id="gc2" class="getcard"><img height="140px" src=" "></div>
+<div id="gc3" class="getcard"><img height="140px" src=" "></div>
+<div id="gc4" class="getcard"><img height="140px" src=" "></div>
+<div id="gc5" class="getcard"><img height="140px" src=" "></div>
+<div id="gc6" class="getcard"><img height="140px" src=" "></div>
+<div id="gc7" class="getcard"><img height="140px" src=" "></div>
+<div id="gc8" class="getcard"><img height="140px" src=" "></div>
+<div id="gc9" class="getcard"><img height="140px" src=" "></div>
+<div id="gc10" class="getcard"><img height="140px" src=" "></div>
+<div id="gc11" class="getcard"><img height="140px" src=" "></div>
+<div id="gc12" class="getcard"><img height="140px" src=" "></div>
+<div id="gc13" class="getcard"><img height="140px" src=" "></div>
+
+<!--出牌以后的牌-->
+<div id="top1" class="card"><img height="170px" src="黑桃K.png "></div>
+<div id="top2" class="card"><img height="140px" src=" "></div>
+<div id="top3" class="card"><img height="140px" src=" "></div>
+<div id="middle1" class="card"><img height="140px" src=" "></div>
+<div id="middle2" class="card"><img height="140px" src=" "></div>
+<div id="middle3" class="card"><img height="140px" src=" "></div>
+<div id="middle4" class="card"><img height="140px" src=" "></div>
+<div id="middle5" class="card"><img height="140px" src=" "></div>
+<div id="buttom1" class="card"><img height="140px" src=" "></div>
+<div id="buttom2" class="card"><img height="140px" src=" "></div>
+<div id="buttom3" class="card"><img height="140px" src=" "></div>
+<div id="buttom4" class="card"><img height="140px" src=" "></div>
+<div id="buttom5" class="card"><img height="140px" src=" "></div>
 
 
-<div id="di2" ><botton onclick="location.href='往期对战结果.html'">
-    <b>&nbsp;&nbsp;往期对战结果</b>
-</botton></div>
-
-<div id="di3" ><botton onclick="location.href='开始界面.html'">
+<!--退出按钮-->
+<div id="di3" ><botton onclick="location.href='选择.html'">
     <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出</b>
 </botton></div>
 
+<!--排行榜-->
+<div id="di1" ><botton onclick="dianwo()">
+    <b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;排行榜</b>
+</botton></div>
+
+<div class="zhezhao" id='zhezhao'>
+    <div class="tankuang">
+        <div id="header">
+
+            <img src="字体3.png" class="image1">
+
+
+            <!--长框 放返回数据（积分）-->
+
+            <div id="id4">
+                <div id="grade1"><b>Score：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+            </div>
+            <div id="id5">
+                <div id="grade2"><b>Score：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+            </div>
+            <div id="id6">
+                <div id="grade3"><b>Score：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+            </div>
+            <div id="id7">
+                <div id="grade4"><b>Score：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></div>
+            </div>
+
+            <!-- ID NAME-->
+            <div id="name1"></div> <!--返回NAME -->
+            <div id="pid1">ID：</div>
+
+            <div id="name2"></div>
+            <div id="pid2">ID：</div>
+
+            <div id="name3"></div>
+            <div id="pid3">ID：</div>
+
+            <div id="name4"></div>
+            <div id="pid4">ID：</div>
+            <!--数字-->
+            <div id="id8">
+                <b>1</b>
+            </div>
+            <div id="id9">
+                <b>2</b>
+            </div>
+            <div id="id10" >
+                <b>3</b>
+            </div>
+            <div id="id11"  >
+                <b>4</b>
+            </div>
+
+            <!--  <span>我是弹窗</span>-->
+            <div id="header-right" onclick="hidder()"><b>×</b></div>
+        </div>
+    </div>
+</div>
+
+<div id="di2" ><botton onclick="dianwo2()">
+    <b>&nbsp;&nbsp;往期对战结果</b>
+</botton></div>
+
+<div class="zhezhao2" id='zhezhao2'>
+    <div class="tankuang2">
+        <div id="header2">
+
+            <img src="字体1.png" class="image2">
+            <!--需要提供的参数-->
+            <div id="IIDD">
+                ID：
+            </div>
+
+            <div id="LIMIT">
+                Limit：4
+            </div> <!--每页条数-->
+
+            <div id="PAGE">
+                Page：
+            </div> <!--页码-->
+
+            <!--返回数据 格式按照放在里面的来-->
+            <div id="d4">
+                <div id="res1"> <b>score: -7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:<br>
+                    card: &J $K &A #2 &2 #3 *3 $5 &3 #4 *5 $6 #7</b></div>
+            </div>
+
+            <div id="d5">
+                <div id="res2"> <b>score: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp: <br>
+                    card:</b></div>
+            </div>
+
+            <div id="d6">
+                <div id="res3"> <b>score: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:<br>
+                    card:</b></div>
+            </div>
+
+            <div id="d7">
+                <div id="res4"> <b>score: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:<br>
+                    card:</b></div>
+            </div>
+
+
+            <div id="ddi1" ><botton onclick="dianwo3()">
+                <b>2019</b>  <!--写入战局id--> <!--写入后才能点击弹出弹窗-->
+            </botton></div>
+            <div class="zhezhao3" id='zhezhao3'>
+                <div class="tankuang3">
+                    <div id="header3">
+                        <img src="字体2.png" class="image3">
+                        <img src="战局详情背景.png" class="image4">
+                        <!--名字-->
+                        <div id="n1" >
+                            n1
+                        </div>
+                        <div id="n2" >
+                            n2
+                        </div>
+                        <div id="n3">
+                            n3
+                        </div>
+                        <div id="n4">
+                            n4
+                        </div>
+                        <!--玩家id-->
+                        <div id="i1" >
+                        </div>
+                        <div id="i2">
+                        </div>
+                        <div id="i3">
+                        </div>
+                        <div id="i4">
+
+                        </div>
+                        <!--玩家得分-->
+                        <div id="g1" >
+                        </div>
+                        <div id="g2">
+                        </div>
+                        <div id="g3">
+                        </div>
+                        <div id="g4">
+                        </div>
+                        <div id="q1" >qian1
+                        </div>
+                        <div id="q2">qian2
+                        </div>
+                        <div id="q3">3
+                        </div>
+                        <div id="q4">4</div>
+                        <!--中墩-->
+                        <div id="z1">1</div>
+                        <div id="z2">2</div>
+                        <div id="z3">3</div>
+                        <div id="z4">4</div>
+                        <!--后墩-->
+                        <div id="h1">1
+                        </div>
+                        <div id="h2">2</div>
+                        <div id="h3">3</div>
+                        <div id="h4">4</div>
+                        <!--战局id-->
+                        <div id="id2"></div>
+                        <!--当前时间-->
+                        <div id="shijian"></div>
+                        <div id="header-right3" onclick="hidder3()"><b>×</b></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="ddi2" ><botton onclick="dianwo4()">
+                <b></b>  <!--写入战局id-->
+            </botton></div>
+
+            <div class="zhezhao4" id='zhezhao4'>
+                <div class="tankuang4">
+                    <div id="header4">
+                        <img src="字体2.png" class="image3">
+                        <img src="战局详情背景.png" class="image4">
+                        <!--名字-->
+                        <div id="n1" >
+                            n1
+                        </div>
+                        <div id="n2" >
+                            n2
+                        </div>
+                        <div id="n3">
+                            n3
+                        </div>
+                        <div id="n4">
+                            n4
+                        </div>
+                        <!--玩家id-->
+                        <div id="i1" >
+                        </div>
+                        <div id="i2">
+                        </div>
+                        <div id="i3">
+                        </div>
+                        <div id="i4">
+
+                        </div>
+                        <!--玩家得分-->
+                        <div id="g1" >
+                        </div>
+                        <div id="g2">
+                        </div>
+                        <div id="g3">
+                        </div>
+                        <div id="g4">
+                        </div>
+                        <div id="q1" >qian1
+                        </div>
+                        <div id="q2">qian2
+                        </div>
+                        <div id="q3">3
+                        </div>
+                        <div id="q4">4</div>
+                        <!--中墩-->
+                        <div id="z1">1</div>
+                        <div id="z2">2</div>
+                        <div id="z3">3</div>
+                        <div id="z4">4</div>
+                        <!--后墩-->
+                        <div id="h1">1
+                        </div>
+                        <div id="h2">2</div>
+                        <div id="h3">3</div>
+                        <div id="h4">4</div>
+                        <!--战局id-->
+                        <div id="id2"></div>
+                        <!--当前时间-->
+                        <div id="shijian"></div>
+                        <div id="header-right4" onclick="hidder4()"><b>×</b></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="ddi3" ><botton onclick="dianwo5()">
+                <b></b>  <!--写入战局id-->
+            </botton></div>
+            <div class="zhezhao5" id='zhezhao5'>
+                <div class="tankuang5">
+                    <div id="header5">
+                        <img src="字体2.png" class="image3">
+                        <img src="战局详情背景.png" class="image4">
+                        <!--名字-->
+                        <div id="n1" >
+                            n1
+                        </div>
+                        <div id="n2" >
+                            n2
+                        </div>
+                        <div id="n3">
+                            n3
+                        </div>
+                        <div id="n4">
+                            n4
+                        </div>
+                        <!--玩家id-->
+                        <div id="i1" >
+                        </div>
+                        <div id="i2">
+                        </div>
+                        <div id="i3">
+                        </div>
+                        <div id="i4">
+
+                        </div>
+                        <!--玩家得分-->
+                        <div id="g1" >
+                        </div>
+                        <div id="g2">
+                        </div>
+                        <div id="g3">
+                        </div>
+                        <div id="g4">
+                        </div>
+                        <div id="q1" >qian1
+                        </div>
+                        <div id="q2">qian2
+                        </div>
+                        <div id="q3">3
+                        </div>
+                        <div id="q4">4</div>
+                        <!--中墩-->
+                        <div id="z1">1</div>
+                        <div id="z2">2</div>
+                        <div id="z3">3</div>
+                        <div id="z4">4</div>
+                        <!--后墩-->
+                        <div id="h1">1
+                        </div>
+                        <div id="h2">2</div>
+                        <div id="h3">3</div>
+                        <div id="h4">4</div>
+                        <!--战局id-->
+                        <div id="id2"></div>
+                        <!--当前时间-->
+                        <div id="shijian"></div>
+                        <div id="header-right5" onclick="hidder5()"><b>×</b></div>
+                    </div>
+                </div>
+            </div>
 
 
 
 
+            <div id="ddi4" ><botton onclick="dianwo6()">
+                <b></b>  <!--写入战局id-->
+            </botton></div>
+            <div class="zhezhao6" id='zhezhao6'>
+                <div class="tankuang6">
+                    <div id="header6">
+                        <img src="字体2.png" class="image3">
+                        <img src="战局详情背景.png" class="image4">
+                        <!--名字-->
+                        <div id="n1" >
+                            n1
+                        </div>
+                        <div id="n2" >
+                            n2
+                        </div>
+                        <div id="n3">
+                            n3
+                        </div>
+                        <div id="n4">
+                            n4
+                        </div>
+                        <!--玩家id-->
+                        <div id="i1" >
+                        </div>
+                        <div id="i2">
+                        </div>
+                        <div id="i3">
+                        </div>
+                        <div id="i4">
+
+                        </div>
+                        <!--玩家得分-->
+                        <div id="g1" >
+                        </div>
+                        <div id="g2">
+                        </div>
+                        <div id="g3">
+                        </div>
+                        <div id="g4">
+                        </div>
+                        <div id="q1" >qian1
+                        </div>
+                        <div id="q2">qian2
+                        </div>
+                        <div id="q3">3
+                        </div>
+                        <div id="q4">4</div>
+                        <!--中墩-->
+                        <div id="z1">1</div>
+                        <div id="z2">2</div>
+                        <div id="z3">3</div>
+                        <div id="z4">4</div>
+                        <!--后墩-->
+                        <div id="h1">1
+                        </div>
+                        <div id="h2">2</div>
+                        <div id="h3">3</div>
+                        <div id="h4">4</div>
+                        <!--战局id-->
+                        <div id="id2"></div>
+                        <!--当前时间-->
+                        <div id="shijian"></div>
+                        <div id="header-right6" onclick="hidder6()"><b>×</b></div>
+                    </div>
+                </div>
+            </div>
+            <!--  <span>我是弹窗</span>-->
+            <div id="header-right2" onclick="hidder2()"><b>×</b></div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
 
 
 
+    document.getElementById('zhezhao').style.display="none";
+    function dianwo(){
+        document.getElementById('zhezhao').style.display="";
+    }
+    function hidder(){
+        document.getElementById('zhezhao').style.display="none";
+    }
+
+    document.getElementById('zhezhao2').style.display="none";
+    function dianwo2(){
+        document.getElementById('zhezhao2').style.display="";
+    }
+    function hidder2(){
+        document.getElementById('zhezhao2').style.display="none";
+    }
+
+    document.getElementById('zhezhao3').style.display="none";
+    function dianwo3(){
+        document.getElementById('zhezhao3').style.display="";
+    }
+    function hidder3(){
+        document.getElementById('zhezhao3').style.display="none";
+    }
+
+    document.getElementById('zhezhao4').style.display="none";
+    function dianwo4(){
+        document.getElementById('zhezhao4').style.display="";
+    }
+    function hidder4(){
+        document.getElementById('zhezhao4').style.display="none";
+    }
+
+    document.getElementById('zhezhao5').style.display="none";
+    function dianwo5(){
+        document.getElementById('zhezhao5').style.display="";
+    }
+    function hidder5(){
+        document.getElementById('zhezhao5').style.display="none";
+    }
+
+    document.getElementById('zhezhao6').style.display="none";
+    function dianwo6(){
+        document.getElementById('zhezhao6').style.display="";
+    }
+    function hidder6(){
+        document.getElementById('zhezhao6').style.display="none";
+    }
+</script>
 </body>
 </html>
+

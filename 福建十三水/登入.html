@@ -177,7 +177,7 @@
 
     <input id="i2" type="password" placeholder="请输入密码">
 
-    <input id="i3" type="button" value="立即登录" onclick="tl()"> <!--onclick用来和js联系-->
+    <input id="i3" type="button" value="立即登录" onclick="t1()"> <!--onclick用来和js联系-->
 </div>
 
 <div id="i7">
@@ -186,7 +186,7 @@
 <img id="i6" src="杠杠.png">
 </div>
 
-<a id="a3" href="开始界面.html" target="_blank">
+<a id="a3" onclick="window.location.href = '开始界面.html'" target="_blank">
     <input  type="image" width="11px" src="no%20(1).png">
 </a>
 
@@ -204,5 +204,48 @@
 
 </div>
 </div>
+<script>
+	var username=document.getElementById("i1");
+    var password=document.getElementById("i2");
+	function t1(){
+    var data = JSON.stringify({
+        "username": username.value,
+        "password": password.value
+    });
+	if (username.value == "" ||password.value == "" )
+	{
+		alert("请输入用户名或密码");
+		return ;
+	}
+
+    var xhr = new XMLHttpRequest();
+	
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+        
+        var JsonObj = JSON.parse(this.responseText);
+        if(JsonObj.status==0) 
+		{
+			localStorage.setItem("token",JsonObj.data.token);
+			alert("登录成功");
+			
+			window.location.href = "选择.html";
+		}
+        else if(JsonObj.status==1003)
+
+            alert("教务处认证失败");
+        else
+
+			alert("用户名未注册或密码错误");
+
+    }
+    });
+
+    xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/login");
+    xhr.setRequestHeader("content-type", "application/json");
+    xhr.send(data);
+    }
+</script>
 </body>
 </html>

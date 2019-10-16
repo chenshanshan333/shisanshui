@@ -1593,6 +1593,7 @@
 <body class="class1">
 
 <button id="start"><b>开始</b></button>
+
 <button id="chupai"><b>出牌</b></button>
 
 <div class="zi" id="zi1"><b>前墩</b></div>
@@ -1600,34 +1601,34 @@
 <div class="zi" id="zi3"><b>后墩</b></div>
 
 <!--开启战局获得的牌-->
-<div id="gc1" class="getcard"><img height="140px" src="黑桃K.png "></div>
-<div id="gc2" class="getcard"><img height="140px" src=" "></div>
-<div id="gc3" class="getcard"><img height="140px" src=" "></div>
-<div id="gc4" class="getcard"><img height="140px" src=" "></div>
-<div id="gc5" class="getcard"><img height="140px" src=" "></div>
-<div id="gc6" class="getcard"><img height="140px" src=" "></div>
-<div id="gc7" class="getcard"><img height="140px" src=" "></div>
-<div id="gc8" class="getcard"><img height="140px" src=" "></div>
-<div id="gc9" class="getcard"><img height="140px" src=" "></div>
-<div id="gc10" class="getcard"><img height="140px" src=" "></div>
-<div id="gc11" class="getcard"><img height="140px" src=" "></div>
-<div id="gc12" class="getcard"><img height="140px" src=" "></div>
-<div id="gc13" class="getcard"><img height="140px" src=" "></div>
+<div id="gc1" class="getcard"><img id="gcc1" height="140px" src=" "></div>
+<div id="gc2" class="getcard"><img id="gcc2" height="140px" src=" "></div>
+<div id="gc3" class="getcard"><img id="gcc3" height="140px" src=" "></div>
+<div id="gc4" class="getcard"><img id="gcc4" height="140px" src=" "></div>
+<div id="gc5" class="getcard"><img id="gcc5" height="140px" src=" "></div>
+<div id="gc6" class="getcard"><img id="gcc6" height="140px" src=" "></div>
+<div id="gc7" class="getcard"><img id="gcc7" height="140px" src=" "></div>
+<div id="gc8" class="getcard"><img id="gcc8" height="140px" src=" "></div>
+<div id="gc9" class="getcard"><img id="gcc9" height="140px" src=" "></div>
+<div id="gc10" class="getcard"><img id="gcc10" height="140px" src=" "></div>
+<div id="gc11" class="getcard"><img id="gcc11" height="140px" src=" "></div>
+<div id="gc12" class="getcard"><img id="gcc12" height="140px" src=" "></div>
+<div id="gc13" class="getcard"><img id="gcc13" height="140px" src=" "></div>
 
 <!--出牌以后的牌-->
-<div id="top1" class="card"><img height="170px" src="黑桃K.png "></div>
-<div id="top2" class="card"><img height="140px" src=" "></div>
-<div id="top3" class="card"><img height="140px" src=" "></div>
-<div id="middle1" class="card"><img height="140px" src=" "></div>
-<div id="middle2" class="card"><img height="140px" src=" "></div>
-<div id="middle3" class="card"><img height="140px" src=" "></div>
-<div id="middle4" class="card"><img height="140px" src=" "></div>
-<div id="middle5" class="card"><img height="140px" src=" "></div>
-<div id="buttom1" class="card"><img height="140px" src=" "></div>
-<div id="buttom2" class="card"><img height="140px" src=" "></div>
-<div id="buttom3" class="card"><img height="140px" src=" "></div>
-<div id="buttom4" class="card"><img height="140px" src=" "></div>
-<div id="buttom5" class="card"><img height="140px" src=" "></div>
+<div id="top1" class="card"><img id="topp1" height="170px" src=" "></div>
+<div id="top2" class="card"><img id="topp2" height="170px" src=" "></div>
+<div id="top3" class="card"><img id="topp3" height="170px" src=" "></div>
+<div id="middle1" class="card"><img id="topp4" height="170px" src=" "></div>
+<div id="middle2" class="card"><img id="topp5" height="170px" src=" "></div>
+<div id="middle3" class="card"><img id="topp6" height="170px" src=" "></div>
+<div id="middle4" class="card"><img id="topp7" height="170px" src=" "></div>
+<div id="middle5" class="card"><img id="topp8" height="170px" src=" "></div>
+<div id="buttom1" class="card"><img id="topp9" height="170px" src=" "></div>
+<div id="buttom2" class="card"><img id="topp10" height="170px" src=" "></div>
+<div id="buttom3" class="card"><img id="topp11" height="170px" src=" "></div>
+<div id="buttom4" class="card"><img id="topp12" height="170px" src=" "></div>
+<div id="buttom5" class="card"><img id="topp13" height="170px" src=" "></div>
 
 
 <!--退出按钮-->
@@ -1663,8 +1664,10 @@
             </div>
 
             <!-- ID NAME-->
-            <div id="name1"></div> <!--返回NAME -->
+            <div id="name1"> </div> <!--返回NAME -->
             <div id="pid1">ID：</div>
+
+
 
             <div id="name2"></div>
             <div id="pid2">ID：</div>
@@ -2020,12 +2023,169 @@
 
 
 <script type="text/javascript">
+	var token = localStorage.getItem("token");
+	
+	var id_1;
+	//开始
+	document.getElementById("start").onclick = function()
+	{
+		var data = null;
+        var xhr = new XMLHttpRequest();
+        maxn = 0;
+        // var s=document.getElementById("topp1");
+        // match(s,"#3");
+        xhr.addEventListener("readystatechange", function ()
+        {
+            if (this.readyState === this.DONE) {
+			    console.log(this.responseText);
+			    var JsonObject = JSON.parse(this.responseText);
 
+			    if(JsonObject.status==1004) alert("Token过期");
+			    if(JsonObject.status==2001) alert("未结束战局过多");
+			    if (JsonObject.status == 0)
+			    {
+			        id_1 = JsonObject.data.id;
+				    showCard(JsonObject.data.card,"gcc");
+					begin_1(JsonObject.data.card);
 
+                }
+			}
+        });
+
+        xhr.open("POST", "https://api.shisanshui.rtxux.xyz/game/open");
+        xhr.setRequestHeader("x-auth-token",token);
+        xhr.send(data);
+	};
+	function showCard(Card,weizhi){
+      var cardSplit = Card.split(" ");
+      for(var i=0;i<13;i++)
+      {
+        var s=document.getElementById(weizhi+String(i+1));
+        match(s,cardSplit[i]);
+      }
+    }
+    function match(p,cardSplit){
+      switch(cardSplit){
+          case "#2":p.src="./puke/方块2.png";break;
+          case "#3":p.src="./puke/方块3.png";break;
+          case "#4":p.src="./puke/方块4.png";break;
+          case "#5":p.src="./puke/方块5.png";break;
+          case "#6":p.src="./puke/方块6.png";break;
+          case "#7":p.src="./puke/方块7.png";break;
+          case "#8":p.src="./puke/方块8.png";break;
+          case "#9":p.src="./puke/方块9.png";break;
+          case "#10":p.src="./puke/方块10.png";break;
+          case "#J":p.src="./puke/方块j.png";break;
+          case "#Q":p.src="./puke/方块q.png";break;
+          case "#K":p.src="./puke/方块k.png";break;
+          case "#A":p.src="./puke/方块A.png";break;
+          case "&2":p.src="./puke/红桃2.png";break;
+          case "&3":p.src="./puke/红桃3.png";break;
+          case "&4":p.src="./puke/红桃4.png";break;
+          case "&5":p.src="./puke/红桃5.png";break;
+          case "&6":p.src="./puke/红桃6.png";break;
+          case "&7":p.src="./puke/红桃7.png";break;
+          case "&8":p.src="./puke/红桃8.png";break;
+          case "&9":p.src="./puke/红桃9.png";break;
+          case "&10":p.src="./puke/红桃10.png";break;
+          case "&J":p.src="./puke/红桃j.png";break;
+          case "&Q":p.src="./puke/红桃q.png";break;
+          case "&K":p.src="./puke/红桃k.png";break;
+          case "&A":p.src="./puke/红桃A.png";break;
+          case "$2":p.src="./puke/黑桃2.png";break;
+          case "$3":p.src="./puke/黑桃3.png";break;
+          case "$4":p.src="./puke/黑桃4.png";break;
+          case "$5":p.src="./puke/黑桃5.png";break;
+          case "$6":p.src="./puke/黑桃6.png";break;
+          case "$7":p.src="./puke/黑桃7.png";break;
+          case "$8":p.src="./puke/黑桃8.png";break;
+          case "$9":p.src="./puke/黑桃9.png";break;
+          case "$10":p.src="./puke/黑桃10.png";break;
+          case "$J":p.src="./puke/黑桃j.png";break;
+          case "$Q":p.src="./puke/黑桃q.png";break;
+          case "$K":p.src="./puke/黑桃k.png";break;
+          case "$A":p.src="./puke/黑桃A.png";break;
+          case "*2":p.src="./puke/草花2.png";break;
+          case "*3":p.src="./puke/草花3.png";break;
+          case "*4":p.src="./puke/草花4.png";break;
+          case "*5":p.src="./puke/草花5.png";break;
+          case "*6":p.src="./puke/草花6.png";break;
+          case "*7":p.src="./puke/草花7.png";break;
+          case "*8":p.src="./puke/草花8.png";break;
+          case "*9":p.src="./puke/草花9.png";break;
+          case "*10":p.src="./puke/草花10.png";break;
+          case "*J":p.src="./puke/草花j.png";break;
+          case "*Q":p.src="./puke/草花q.png";break;
+          case "*K":p.src="./puke/草花k.png";break;
+          case "*A":p.src="./puke/草花A.png";break;
+        }
+    }
+
+    //出牌
+	document.getElementById("chupai").onclick = function()
+	{
+		var data = JSON.stringify({
+		"id":id_1,
+		"card":[qans1,qans2,qans3]
+		});
+        var xhr = new XMLHttpRequest();
+
+        xhr.addEventListener("readystatechange", function () {
+        if (this.readyState === this.DONE) {
+			console.log(this.responseText);
+			var JsonObject = JSON.parse(this.responseText);
+            if(JsonObject.status==0)
+            {
+                showCard(qans1+" "+qans2+" "+qans3,"topp");
+
+                alert("出牌成功");
+            }
+
+            else if(JsonObject.status==2003)alert("不合法墩牌");
+            else if(JsonObject.status==2002)alert("出千");
+            else if(JsonObject.status==2004)alert("战局不存在或已结束，请重新开始");
+            else if(JsonObject.status==2005)alert("格式出错");
+			else
+			    alert(JsonObject.status);
+            }
+        });
+
+        xhr.open("POST", "https://api.shisanshui.rtxux.xyz/game/submit");
+        xhr.setRequestHeader("x-auth-token",token);
+		xhr.setRequestHeader("content-type", "application/json");
+        xhr.send(data);
+	}
 
     document.getElementById('zhezhao').style.display="none";
     function dianwo(){
         document.getElementById('zhezhao').style.display="";
+
+        var data = null;
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                var JsonObject = JSON.parse(this.responseText);
+                for(var i=0;i<4;i++)
+                {
+
+                    var s = document.getElementById("grade"+String(i+1));
+                    s.innerHTML = "Score: "+ JsonObject[i].score;
+                    s = document.getElementById("name"+String(i+1));
+                    s.innerHTML = JsonObject[i].name;
+                    s = document.getElementById("name"+String(i+1));
+                    s.innerHTML = JsonObject[i].name;
+
+                }
+            }
+        });
+
+        xhr.open("GET", "https://api.shisanshui.rtxux.xyz/rank");
+
+        xhr.send(data);
     }
     function hidder(){
         document.getElementById('zhezhao').style.display="none";
@@ -2070,6 +2230,184 @@
     function hidder6(){
         document.getElementById('zhezhao6').style.display="none";
     }
+var used = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var pai = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var paise = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var duiyin = ['&','$','#','*'];
+
+var maxn = 0;
+var qans1 = "";
+var qans2 = "";
+var qans3 = "";
+
+function lol(n,a,b) {
+    var tt ="";
+    for(var i = 0;i<n;i++)
+    {
+        if(i !== 0) tt+=" ";
+        tt+=duiyin[b[i]];
+
+        switch (a[i]) {
+            case 11:tt+="J";break;
+            case 12:tt+="Q";break;
+            case 13:tt+="K";break;
+            case 14:tt+="A";break;
+            default:tt+=String(a[i]);
+        }
+    }
+    return tt;
+}
+
+function score() {
+    var a = [], b = [], c = [], d = [], e = [], f = [], i, j;
+
+    for (i = 0; i < 13; i++) {
+        if (used[i] === 1) {
+            a.push(pai[i]);
+            b.push(paise[i]);
+        } else if (used[i] === 0) {
+            c.push(pai[i]);
+            d.push(paise[i]);
+        } else if (used[i] === 2) {
+            e.push(pai[i]);
+            f.push(paise[i]);
+        }
+    }
+    for (j = 0; j < 2; j++)
+        for (i = 0; i < 2 - j; i++)
+            if (a[i] > a[i + 1]) {
+                [a[i], a[i + 1]] = [a[i + 1], a[i]];
+                [b[i], b[i + 1]] = [b[i + 1], b[i]];
+            }
+
+
+    for (j = 0; j < 4; j++)
+        for (i = 0; i < 4 - j; i++) {
+            if (c[i] > c[i + 1]) {
+                [c[i], c[i + 1]] = [c[i + 1], c[i]];
+                [d[i], d[i + 1]] = [d[i + 1], d[i]];
+            }
+            if (e[i] > e[i + 1]) {
+                [e[i], e[i + 1]] = [e[i + 1], e[i]];
+                [f[i], f[i + 1]] = [f[i + 1], f[i]];
+            }
+        }
+    var ans1 = score1(a, b);
+    var ans2 = score2(c, d);
+    var ans3 = score2(e, f);
+    if (ans1 < ans2 && ans2 < ans3 && ans1 + ans2 + ans3 > maxn)
+    {
+        maxn=ans1+ans2+ans3;
+        qans1=lol(3,a,b);
+        qans2=lol(5,c,d);
+        qans3=lol(5,e,f);
+    }
+}
+function score1(a,b) {
+
+    if(a[0]===a[1]&&a[1] === a[2])
+        return 4+a[2]/100;
+    if(a[0]===a[1]||a[1] === a[2])
+        return 2+a[1]/100;
+    return 1+a[2]/100;
+}
+function score2(a,b) {
+    var i,node=1;
+    var tt=0;
+    for(i=0;i<5;i++)
+        tt+=a[i];
+    tt=tt/10000.0;
+    for(i=0;i<4;i++)
+        if(a[i]+1!==a[i+1]&&b[i]!==b[i+1])
+        node = 0;
+    if(1 === node)
+        return 13+a[4]/100;
+    if((a[0]==a[1]&&a[1]==a[2]&&a[2]==a[3])||(a[3]==a[4]&&a[1]==a[2]&&a[2]==a[3]))
+        return 11+a[3]/100;
+    if((a[0]==a[1]&&a[1]==a[2]&&a[4]==a[3])||(a[3]==a[4]&&a[1]==a[0]&&a[2]==a[3]))
+        return 9+a[2]/100;
+    if(b[0]==b[1]&&b[1]==b[2]&&b[2]==b[3]&&b[3]==b[4])
+        return 7+a[4]/100;
+    if((a[0]+1==a[1])&&(a[1]+1==a[2])&&(a[4]==a[3]+1)&&(a[2]+1==a[3]))
+        return 6+a[4]/100;
+    if((a[0]==a[1]&&a[1]==a[2])||(a[2]==a[3]&&a[1]==a[2])||(a[3]==a[2]&&a[3]==a[4]))
+        return 5+a[3]/100;
+    if(((a[0]==a[1])&&(a[2]==a[3])&&(a[2]==a[1]+1))||((a[2]==a[1])&&(a[4]==a[3])&&(a[1]+1==a[3])))
+        return 4+a[3]/100;
+    if(((a[0]==a[1])&&(a[2]==a[3]))||((a[0]==a[1])&&(a[4]==a[3]))||((a[2]==a[1])&&(a[4]==a[3])))
+        return 3+a[3]/100;
+    for(i=0;i<4;i++)
+    {
+        if(a[i]==a[i+1])
+            return 2+a[i]/100;
+    }
+    return 1+a[4]/100;
+}
+function find2(pos,n) {
+    if(pos==13&&n==0)
+    {
+        score();
+        return true;
+    }
+    if(pos==13)
+        return false;
+    while(used[pos]==1)
+    {
+        pos+=1;
+        if(pos==13)
+            return false;
+    }
+    if(n>0)
+    {
+        used[pos]=2;
+        find2(pos+1,n-1);
+        used[pos]=0;
+    }
+    find2(pos+1,n);
+}
+function find1(pos,n) {
+    if(pos==13&&n==0)
+    {
+        find2(0,5);
+        return true;
+    }
+    if(pos==13)
+        return false;
+    if(n>0)
+    {
+        used[pos]=1;
+        find1(pos+1,n-1);
+        used[pos]=0;
+    }
+    find1(pos+1,n);
+}
+function pre_deal(pii) {
+    var paisp = pii.split(" ");
+    for (var i =0;i<13;i++)
+    {
+        switch (paisp[i][0]) {
+            case '&':paise[i]=0;break;
+            case '$':paise[i]=1;break;
+            case '#':paise[i]=2;break;
+            case '*':paise[i]=3;break;
+        }
+        switch (paisp[i][1]) {
+            case '1':pai[i]=10;break;
+            case 'J':pai[i]=11;break;
+            case 'Q':pai[i]=12;break;
+            case 'K':pai[i]=13;break;
+            case 'A':pai[i]=14;break;
+            default:pai[i]=Number(paisp[i][1]);
+        }
+
+    }
+}
+
+function begin_1(card_1) {
+    pre_deal(card_1);
+	find1(0,3);
+
+}
 </script>
 </body>
 </html>

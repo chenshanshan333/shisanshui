@@ -2034,6 +2034,7 @@
 					id_1 = JsonObject.data.id;
 				    showCard(JsonObject.data.card,"gcc");
 					showCard("","topp");
+					
 					begin_1(JsonObject.data.card);
 
                 }else if(JsonObject.status == 5000 )
@@ -2261,32 +2262,10 @@
         document.getElementById('zhezhao3').style.display="none";
     }
 
-    document.getElementById('zhezhao4').style.display="none";
-    function dianwo4(){
-        document.getElementById('zhezhao4').style.display="";
-    }
-    function hidder4(){
-        document.getElementById('zhezhao4').style.display="none";
-    }
-
-    document.getElementById('zhezhao5').style.display="none";
-    function dianwo5(){
-        document.getElementById('zhezhao5').style.display="";
-    }
-    function hidder5(){
-        document.getElementById('zhezhao5').style.display="none";
-    }
-
-    document.getElementById('zhezhao6').style.display="none";
-    function dianwo6(){
-        document.getElementById('zhezhao6').style.display="";
-    }
-    function hidder6(){
-        document.getElementById('zhezhao6').style.display="none";
-    }
+   
 var used = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var pai = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-var paise = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var pai = new Array();
+var paise = new Array();
 var duiyin = ['&','$','#','*'];
 
 var maxn = 0;
@@ -2437,6 +2416,7 @@ function find1(pos,n) {
 }
 function pre_deal(pii) {
     var paisp = pii.split(" ");
+	
     for (var i =0;i<13;i++)
     {
         switch (paisp[i][0]) {
@@ -2453,12 +2433,13 @@ function pre_deal(pii) {
             case 'A':pai[i]=14;break;
             default:pai[i]=Number(paisp[i][1]);
         }
-
     }
+	
 }
 
 function begin_1(card_1) {
     pre_deal(card_1);
+	
 	find1(0,3);
 
 }

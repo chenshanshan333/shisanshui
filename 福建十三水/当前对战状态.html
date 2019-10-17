@@ -543,7 +543,28 @@
             width:160px;
             height:20px;
             border-radius: 5px;
-            margin-top: 30px;
+            margin-top: 15px;
+            margin-left: 60px;
+            -moz-box-shadow:5px 5px 10px #6b5858;
+            -webkit-box-shadow:5px 5px 10px #6b5858;
+            box-shadow:5px 5px 10px #6b5858;
+            color: #FFFFFF;
+
+
+            text-align: center;
+            line-height: 20px;
+        }
+        #chaxun
+        {
+            position: fixed;
+            border-color:#dfcdcd;
+            border-style: solid;
+            border-width: 5px;
+            background-color:#dfcdcd;
+            width:160px;
+            height:20px;
+            border-radius: 5px;
+            margin-top: 50px;
             margin-left: 60px;
             -moz-box-shadow:5px 5px 10px #6b5858;
             -webkit-box-shadow:5px 5px 10px #6b5858;
@@ -555,19 +576,18 @@
             line-height: 20px;
         }
 
-
         #LIMIT
         {
             position: fixed;
             border-color:#dfcdcd;
             border-style: solid;
-            border-width: 5px;
+            border-width: 6px;
             background-color:#dfcdcd;
             width:130px;
             height:20px;
             border-radius: 5px;
             margin-top: 30px;
-            margin-left: 310px;
+            margin-left: 275px;
             -moz-box-shadow:5px 5px 10px #6b5858;
             -webkit-box-shadow:5px 5px 10px #6b5858;
             box-shadow:5px 5px 10px #6b5858;
@@ -952,33 +972,6 @@
             margin-left: 20px;
         }
 
-        /*#id1{*/
-        /*    position: fixed;*/
-        /*    border-color:#ffffff;*/
-        /*    border-style: solid;*/
-        /*    border-width: 5px;*/
-        /*    background-color:#FFFFFF;*/
-        /*    width:674px;*/
-        /*    height:673px;*/
-        /*    opacity:0.4;*/
-        /*    border-radius: 6px;*/
-        /*    margin-top: 18px;*/
-        /*    margin-left: 440px;*/
-        /*    -moz-box-shadow:5px 5px 10px #717171;*/
-        /*    -webkit-box-shadow:5px 5px 10px #717171;*/
-        /*    box-shadow:5px 5px 10px #717171;*/
-        /*}*/
-
-        #s2{
-            position: fixed;
-            background-attachment: fixed;
-            margin-top: 40px;
-            margin-left: 1080px;
-        }
-        #s2:hover
-        {
-            opacity: 0.75;
-        }
 
         #n1
         {
@@ -1707,22 +1700,21 @@
 
             <img src="字体1.png" class="image2">
             <!--需要提供的参数-->
-            <div id="IIDD">
-                ID：
-            </div>
+            <input id="IIDD" placeholder="请输入查询玩家的ID">
+
+            <div id="chaxun"><button onclick="chaxun_1()"><b>查询</b></button></div>
+
 
             <div id="LIMIT">
                 Limit：4
             </div> <!--每页条数-->
 
-            <div id="PAGE">
-                Page：
-            </div> <!--页码-->
+            <input id="PAGE" placeholder="请输入查询页码">
 
             <!--返回数据 格式按照放在里面的来-->
             <div id="d4">
-                <div id="res1"> <b>score: -7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:<br>
-                    card: &J $K &A #2 &2 #3 *3 $5 &3 #4 *5 $6 #7</b></div>
+                <div id="res1"> <b>score: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timestamp:<br>
+                    card: </b></div>
             </div>
 
             <div id="d5">
@@ -1809,7 +1801,7 @@
             </div>
 
 
-            <div id="ddi2" ><botton onclick="dianwo4()">
+            <div id="ddi2" ><botton onclick="dianwo3("ddi2")">
                 <b></b>  <!--写入战局id-->
             </botton></div>
 
@@ -1878,10 +1870,10 @@
             </div>
 
 
-
-            <div id="ddi3" ><botton onclick="dianwo5()">
+           <div id="ddi3" ><botton onclick="dianwo3("ddi3")">
                 <b></b>  <!--写入战局id-->
-            </botton></div>
+           </botton></div>
+		   
             <div class="zhezhao5" id='zhezhao5'>
                 <div class="tankuang5">
                     <div id="header5">
@@ -1949,7 +1941,7 @@
 
 
 
-            <div id="ddi4" ><botton onclick="dianwo6()">
+            <div id="ddi4" ><botton onclick="dianwo3("ddi1")">
                 <b></b>  <!--写入战局id-->
             </botton></div>
             <div class="zhezhao6" id='zhezhao6'>
@@ -2025,7 +2017,7 @@
 <script type="text/javascript">
 	var token = localStorage.getItem("token");
 	
-	var id_1;
+	var id_1 = 0 ;
 	//开始
 	document.getElementById("start").onclick = function()
 	{
@@ -2044,11 +2036,15 @@
 			    if(JsonObject.status==2001) alert("未结束战局过多");
 			    if (JsonObject.status == 0)
 			    {
-			        id_1 = JsonObject.data.id;
+					id_1 = JsonObject.data.id;
 				    showCard(JsonObject.data.card,"gcc");
+					showCard("","topp");
 					begin_1(JsonObject.data.card);
 
-                }
+                }else if(JsonObject.status == 5000 )
+				{
+					alert("请重新注册并绑定教务处账号");
+				}
 			}
         });
 
@@ -2056,14 +2052,24 @@
         xhr.setRequestHeader("x-auth-token",token);
         xhr.send(data);
 	};
-	function showCard(Card,weizhi){
-      var cardSplit = Card.split(" ");
+	function showCard(Card,weizhi)
+{
+	if(Card == "")
+	{
+		for(var i=0;i<13;i++)
+      {
+        var s=document.getElementById(weizhi+String(i+1));
+        match(s," ");
+      }
+	}else{
+		var cardSplit = Card.split(" ");
       for(var i=0;i<13;i++)
       {
         var s=document.getElementById(weizhi+String(i+1));
         match(s,cardSplit[i]);
       }
-    }
+	}
+}
     function match(p,cardSplit){
       switch(cardSplit){
           case "#2":p.src="./puke/方块2.png";break;
@@ -2118,6 +2124,7 @@
           case "*Q":p.src="./puke/草花q.png";break;
           case "*K":p.src="./puke/草花k.png";break;
           case "*A":p.src="./puke/草花A.png";break;
+		  case " ":p.src=" ";break;
         }
     }
 
@@ -2129,7 +2136,7 @@
 		"card":[qans1,qans2,qans3]
 		});
         var xhr = new XMLHttpRequest();
-
+		
         xhr.addEventListener("readystatechange", function () {
         if (this.readyState === this.DONE) {
 			console.log(this.responseText);
@@ -2157,34 +2164,33 @@
 	}
 
     document.getElementById('zhezhao').style.display="none";
+
+	//点击排行榜的行为
     function dianwo(){
         document.getElementById('zhezhao').style.display="";
-
         var data = null;
-
         var xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+        //  xhr.withCredentials = true;
 
         xhr.addEventListener("readystatechange", function () {
             if (this.readyState === this.DONE) {
                 console.log(this.responseText);
                 var JsonObject = JSON.parse(this.responseText);
-                for(var i=0;i<4;i++)
-                {
-
-                    var s = document.getElementById("grade"+String(i+1));
-                    s.innerHTML = "Score: "+ JsonObject[i].score;
-                    s = document.getElementById("name"+String(i+1));
-                    s.innerHTML = JsonObject[i].name;
-                    s = document.getElementById("name"+String(i+1));
-                    s.innerHTML = JsonObject[i].name;
-
-                }
+                
+                    for(var i=0;i<4;i++)
+					{
+						var s = document.getElementById("grade"+String(i+1));
+						s.innerHTML = "Score: "+ JsonObject[i].score;
+						s = document.getElementById("name"+String(i+1));
+						s.innerHTML = JsonObject[i].name;
+						s = document.getElementById("pid"+String(i+1));
+						s.innerHTML = "ID = "+JsonObject[i].player_id;
+					}
+                
             }
         });
 
         xhr.open("GET", "https://api.shisanshui.rtxux.xyz/rank");
-
         xhr.send(data);
     }
     function hidder(){
@@ -2192,16 +2198,63 @@
     }
 
     document.getElementById('zhezhao2').style.display="none";
+	//点击对战结果中查询的行为
+	function chaxun_1()
+	{
+        var idd = document.getElementById('IIDD');
+        var paa = document.getElementById('PAGE');
+		
+		if(idd.value=="")
+			idd.value = String(localStorage.getItem("id"));
+		if(paa.value=="")
+			paa.value = "0";
+        var data = null;
+		
+		var url ="https://api.shisanshui.rtxux.xyz/history?page="+paa.value+"&limit=4&player_id="+idd.value;
+		
+        var xhr = new XMLHttpRequest();
+		
+        xhr.addEventListener("readystatechange", function () {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                var JsonObject = JSON.parse(this.responseText);
+                if(JsonObject.status==0)
+                {
+                    for(var i=0;i<4;i++)
+                    {
+						var s = document.getElementById("ddi"+String(i+1));
+						s.innerHTML = JsonObject.data[i].id;
+                        s = document.getElementById("res"+String(i+1));     
+                        s.innerHTML = "&nbsp;&nbsp;&nbsp;Score:&nbsp;&nbsp;&nbsp;"+ JsonObject.data[i].score+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;time:"+JsonObject.data[i].timestamp+"<br />Card:&nbsp;&nbsp; "+JsonObject.data[i].card;
+                    }
+                }else if(JsonObject.status==3002)
+                    alert("玩家不存在");
+				else if(JsonObject.status == 5000 )
+				{
+					alert("请重新注册并绑定教务处账号");
+				}
+            }
+          });
+
+        xhr.open("GET", url);
+		xhr.setRequestHeader("x-auth-token",token);
+		xhr.send(data);
+	}
+
+	//点击对战结果的行为
     function dianwo2(){
         document.getElementById('zhezhao2').style.display="";
+
     }
     function hidder2(){
         document.getElementById('zhezhao2').style.display="none";
     }
 
     document.getElementById('zhezhao3').style.display="none";
+	//点击查询结果中的战局ID行为
     function dianwo3(){
         document.getElementById('zhezhao3').style.display="";
+		
     }
     function hidder3(){
         document.getElementById('zhezhao3').style.display="none";
@@ -2318,7 +2371,7 @@ function score2(a,b) {
         tt+=a[i];
     tt=tt/10000.0;
     for(i=0;i<4;i++)
-        if(a[i]+1!==a[i+1]&&b[i]!==b[i+1])
+        if(a[i]+1!==a[i+1]||b[i]!==b[i+1])
         node = 0;
     if(1 === node)
         return 13+a[4]/100;

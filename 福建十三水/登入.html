@@ -228,6 +228,8 @@
         if(JsonObj.status==0) 
 		{
 			localStorage.setItem("token",JsonObj.data.token);
+			localStorage.setItem("id",JsonObj.data.user_id);
+
 			alert("登录成功");
 			
 			window.location.href = "选择.html";

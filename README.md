@@ -14,7 +14,7 @@
 
 ## 代码质量评分
 
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3ade30eceb1248b3950deff956ae1dc1)](https://www.codacy.com/manual/chenshanshan333/shisanshui?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=chenshanshan333/shisanshui&amp;utm_campaign=Badge_Grade)
 
 
 ## 运行环境

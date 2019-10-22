@@ -40,13 +40,35 @@
         </style>
 </head>
 <body class="class1">
-<a id="a1" href="当前对战状态.html" target="_blank">
+<a id="a1" onclick="window.location.href = '当前对战状态.html'" target="_blank">
 <input  type="image" src="开启.png" >
     </a>
-<a id="a2" onclick="function f() {
-
-}" target="_blank">
+<a id="a2" onclick="f1()" target="_blank">
     <input  type="image" src="退出.png" > <!--和注销接口连-->
 
 </body>
+<script>
+    var token = localStorage.getItem("token");
+	function f1() {
+        var data = null;
+        var xhr = new XMLHttpRequest();
+        xhr.addEventListener("readystatechange", function ()
+        {
+            if (this.readyState === this.DONE) {
+                console.log(this.responseText);
+                var JsonObject = JSON.parse(this.responseText);
+                if (JsonObject.status == 0)
+                {
+                    alert("注销成功");
+                    window.location.href = '登入.html';
+                }else
+                    alert(JsonObject.status);
+            }
+        });
+
+        xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/logout");
+        xhr.setRequestHeader("x-auth-token",token);
+        xhr.send(data);
+    }
+</script>
 </html>

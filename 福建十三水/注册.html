@@ -54,11 +54,11 @@
         border-width: 3px;
         border-radius: 5px;
         width: 206px;
-        height: 43px;
+        height: 30px;
         color: #FFFFFF;
         text-align: center;
         font-size: 16px;
-        margin-top:120px;
+        margin-top:160px;
         margin-left: 72px;
     }
     #i3:hover{
@@ -69,23 +69,33 @@
         margin-top:0x;
         margin-left: 70px;
         width: 206px;
-        height:35px;
+        height:20px;
         border-radius: 3px;
     }
-/*    #i9{
-        position: fixed;
-        margin-top:56px;
-        margin-left: 70px;
-        width: 206px;
-        height:35px;
-        border-radius: 3px;
-    }*/
     #i2{
         position: fixed;
-        margin-top:60px;
+        margin-top:40px;
         margin-left: 70px;
         width: 206px;
-        height:35px;
+        height:20px;
+        border-radius: 3px;
+    }
+    #ii3
+    {
+        position: fixed;
+        margin-top:80px;
+        margin-left: 70px;
+        width: 206px;
+        height:20px;
+        border-radius: 3px;
+    }
+    #ii4
+    {
+        position: fixed;
+        margin-top:120px;
+        margin-left: 70px;
+        width: 206px;
+        height:20px;
         border-radius: 3px;
     }
     .word{
@@ -93,15 +103,30 @@
         font-size: 16px;
     }
     #p1{
-        margin-top:6px;
+        position: fixed;
+        margin-top:0px;
+        margin-left: 15px;
     }
- /*   #p2{
-        margin-left: 6px;
-        margin-top:64px;
-    }*/
-    #p3{
-        margin-left: 6px;
-        margin-top:69px;
+    #p2{
+        position: fixed;
+        margin-left: 30px;
+        margin-top:40px;
+    }
+    #pp3
+    {
+        position: fixed;
+        margin-top:80px;
+        margin-left: 30px;
+        width: 206px;
+        height:20px;
+    }
+    #pp4
+    {
+        position: fixed;
+        margin-top:120px;
+        margin-left: 30px;
+        width: 90px;
+        height:20px;
     }
     #i4{
         position: fixed;
@@ -185,17 +210,21 @@
 <div id="i4">
     <p class="word" id="p1">用户名：</p>
 
-    <input id="i1" type="text" placeholder="请输入教务处账号">
+    <input id="i1" type="text" placeholder="请输入用户名">
 
-<!--    <p class="word" id="p2">昵称：</p>
-
-    <input id="i9" type="text" placeholder="请输入昵称">-->
-
-    <p class="word" id="p3">密码：</p>
+    <p class="word" id="p2">密码：</p>
 
     <input id="i2" type="password" placeholder="请输入密码">
 
-    <input id="i3" type="button" value="立即注册" onclick="tl()"> <!--onclick用来和js联系-->
+    <p class="word" id="pp3">学号：</p>
+    <input id="ii3" type="text" placeholder="请输入教务处账号">
+
+    <p class="word" id="pp4">密码：</p>
+
+    <input id="ii4" type="password" placeholder="请输入教务处密码">
+
+
+    <input id="i3" type="button" value="立即注册" onclick="t1()"> <!--onclick用来和js联系-->
 </div>
 
 <div id="i7">
@@ -222,5 +251,48 @@
 
     </div>
 </div>
+<script>
+	var username=document.getElementById("i1");
+    var password=document.getElementById("i2");
+	function t1()
+	{
+		var data = JSON.stringify({
+			"username": username.value,
+			"password": password.value,
+			"student_number": document.getElementById("ii3").value,
+			"student_password" :document.getElementById("ii4").value
+		});
+		if (username.value == "" ||password.value == "" )
+		{
+			alert("请输入用户名或密码");
+			return ;
+		}
+		if(document.getElementById("ii3").value==""||document.getElementById("ii4").value=="")
+		{
+			alert("请输入教务处账号或密码");
+			return ;
+		}
+		var xhr = new XMLHttpRequest();
+		//xhr.withCredentials = true;
+		xhr.addEventListener("readystatechange", function () {
+		if (this.readyState === this.DONE) {
+			console.log(this.responseText);
+        
+			var JsonObj = JSON.parse(this.responseText);
+			if(JsonObj.status==0) alert("注册成功，请登录");
+			else if(JsonObj.status==1001) alert("用户名已被使用");
+			else if(JsonObj.status==1002) alert("学号已绑定");
+			else if(JsonObj.status==1003) alert("教务处认证失败");
+			else
+				alert(JsonObj.status)
+		}
+		});
+
+		xhr.open("POST", "https://api.shisanshui.rtxux.xyz/auth/register2");
+		xhr.setRequestHeader("content-type", "application/json");
+		xhr.send(data);
+    }
+	
+</script>
 </body>
 </html>

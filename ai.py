@@ -235,7 +235,7 @@ def log_in():
     # token = p.findall(response.text)[0]
 
 
-def open():
+def open_game():
     url = 'https://api.shisanshui.rtxux.xyz/game/open'
 
     headers = {'x-auth-token': tokene}
@@ -292,23 +292,22 @@ def validate():
 # d=[3,0,1,2,1]
 # print(score1(a,b),score2(c,d))
 
-'''
-##输入卡牌，输出答案请用这个
-while True:
-    ttt = input()
-    run(ttt)
-'''
+
+# 输入卡牌，输出答案请用这个
+# while True:
+#     ttt = input()
+#     run(ttt)
+
+
 
 # 刷分请用这个，并在225行改账号密码
-
 log_in()
 validate()
-open()
+open_game()
 ttt = 0
 anss = submit()
 while True:
-    open()
-
+    open_game()
     ans = submit()
     if ans != anss:
         print(ans)

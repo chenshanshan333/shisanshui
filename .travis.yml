@@ -1,0 +1,5 @@
+language: python
+Python:
+        -"3.7.4"
+script:
+        -python ./ai.py

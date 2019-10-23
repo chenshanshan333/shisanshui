@@ -212,7 +212,7 @@ def run(t: str):
     print(qans3)
 
 
-token = ""
+tokene = ""
 idd = 0
 
 
@@ -227,9 +227,9 @@ def log_in():
     response = requests.request("POST", url, data=payload, headers=headers)
 
     aaa = str(response.text)
-    global token, idd
+    global tokene, idd
     p = re.compile(r'token":"(.+?)"')
-    token = p.findall(aaa)[0]
+    tokene = p.findall(aaa)[0]
     # p = re.compile(r'user_id":(.+?),')
     # idd = int(p.findall(aaa)[0])
     # token = p.findall(response.text)[0]
@@ -238,7 +238,7 @@ def log_in():
 def open():
     url = 'https://api.shisanshui.rtxux.xyz/game/open'
 
-    headers = {'x-auth-token': token}
+    headers = {'x-auth-token': tokene}
     response = requests.request("POST", url, headers=headers)
 
     tok1 = str(response.text)
@@ -255,7 +255,7 @@ def submit():
     url = "https://api.shisanshui.rtxux.xyz/game/submit"
     headers = {
         'content-type': "application/json",
-        'x-auth-token': token
+        'x-auth-token': tokene
     }
     payload = "{\"id\":"
     payload = payload + str(idd)
@@ -274,7 +274,7 @@ def submit():
 def validate():
     url = 'https://api.shisanshui.rtxux.xyz/auth/validate'
     headers = {
-        "x-auth-token": token
+        "x-auth-token": tokene
     }
     requests.request("GET", url, headers=headers)
 
